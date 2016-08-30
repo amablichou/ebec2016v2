@@ -36,14 +36,27 @@ hr {
     border-color: #999999;
 }
 
+/**************************************************
+            NAVBAR 
+ **************************************************/
+
 .brand,
 .address-bar {
     display: none;
 }
 
 
-#logo-ebec{
-    width: 94px;
+#logo_ebec_navbar{
+    width: 15%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+#menu_navbar{
+    width: 85%;
+    margin-right: 0;
 }
 
 .navbar-brand {
