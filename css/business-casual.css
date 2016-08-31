@@ -129,6 +129,35 @@ hr {
     float: none;
     margin: 0 auto 0;
 }
+/******************************************
+            FOOTER
+*******************************************/
+
+#auteurs{
+    width: 20%;
+    float: left;
+}
+
+#suscribe{
+    width: 60%;
+    float: left;
+    text-align: center;
+}
+
+#social-medias{
+    width: 20%;
+    float: left;
+    padding: 50px;
+}
+
+.logo{
+    float: left;
+    margin: 0px;
+}
+.twitter{
+    padding-left: 20px;
+}
+
 
 footer {
     background: #fff;
