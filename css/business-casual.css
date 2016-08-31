@@ -6,7 +6,8 @@
 
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background: url('../img/bg.jpg') no-repeat center center fixed;
+    background: #F4EBFF
+     no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -76,21 +77,25 @@ hr {
     letter-spacing: 3px;
 }
 
+
+/**********************************
+            CORPS DE PAGE HOME
+***********************************/
+.suscribe-button{
+    margin-top: 40px;
+}
+
 .img-full {
     min-width: 100%;
 }
 
-.brand-before,
 .brand-name {
     text-transform: capitalize;
 }
 
-.brand-before {
-    margin: 15px 0;
-}
 
 .brand-name {
-    margin: 0;
+    margin: 40px 0;
     font-size: 4em;
 }
 
