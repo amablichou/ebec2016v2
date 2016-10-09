@@ -258,3 +258,17 @@ footer p {
         clear: both;
     }
 }
+
+.ce {
+    width: 400px;
+    height: auto;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.lien {
+    text-decoration: none;
+    color:#000;
+}
