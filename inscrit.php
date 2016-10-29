@@ -1,96 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
-<head>
+ <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+ <title>Inscriptions EBEC</title>
 
-    <title>Contact - Business Casual - Start Bootstrap Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/business-casual.css" rel="stylesheet">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
+ </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Business Casual</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div id="logo_ebec_navbar">
-                <a href="index.html"><img src="img/logo_ebec_saclay.png" width="150px"></a>
-            </div>
-            <div id="menu_navbar">
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="prop_menu">
-                        <a href="contact.html">S'inscrire</a>
-                    </li>
-                    <li class="prop_menu">
-                        <a href="blog.html">Contact</a>
-                    </li>
-                    <li class="prop_menu">
-                        <a href="best.html">L'association</a>
-                    </li>
-                </ul>
-            </div>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
 
-    <div class="container">
+<table border="1" cellpadding="0" cellspacing="0">
 
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12">
-                    <p> Ton inscription a bien été enregistrée! <br>
-                    Tu seras tenu informé des modalités de l'épreuve par mail et sur notre site internet.
-                    
-                </div>
-            </div>
-        </div>
+<tr>
 
-    </div>
-    <!-- /.container -->
+<th>Nom de l'équipe</th>
 
-    
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+<th>Email</th>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+</tr>
+
+<?php  
+// déclaration paramètres connexion
+$host = localhost;
+
+
+$user = julia;
+
+$bdd = inscrits_ebec;
+
+$passwd  = ebec2016;
+
+// Connexion au serveur
+mysql_connect($host, $user,$passwd) or die("erreur de connexion au serveur");
+
+mysql_select_db($bdd) or die("erreur de connexion a la base de donnees");
+
+// Creation et envoi de la requete
+$query = "SELECT equipe, email, nomprenom1, nomprenom2, nomprenom3, nomprenom4, telephone FROM equipes ORDER BY equipe";
+
+$result = mysql_query($query);
+
+// Recuperation des resultats
+while($row = mysql_fetch_row($result)){
+$equipe = $row[0];
+
+$email = $row[1];
+
+$nomprenom1 = $row[2];
+$nomprenom2 = $row[3];
+$nomprenom3 = $row[4];
+$nomprenom4 = $row[5];
+
+$telephone = $row[6];
+
+}
+
+// Deconnexion de la base de donnees
+mysql_close();
+
+?>
+
+<?php
+
+$bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
+
+$req = $bdd->prepare('INSERT INTO Equipes(equipe, email, nomprenom1, nomprenom2, nomprenom3, nomprenom4, telephone) VALUES(:equipe, :email, :nomprenom1, :nomprenom2, :nomprenom3, :nomprenom4, :telephone)');
+$req->execute(array(
+    'equipe' => $equipe,
+    'email' => $email,
+    'nomprenom1' => $nomprenom1,
+    'nomprenom2' => $nomprenom2,
+    'nomprenom3' => $nomprenom3,
+    'nomprenom4' => $nomprenom4,
+    'telephone' => $telephone,
+    ));
+</tr>
+
+</table>
 
 </body>
 
-</html>
+</html
