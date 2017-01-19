@@ -53,7 +53,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="prop_menu">
-                        <a href="suscribe.html">S'inscrire</a>
+                      <a href="suscribe.php">S'inscrire</a>
                     </li>
                     <li class="prop_menu">
                         <a href="lieu.html">Contact</a>
@@ -80,40 +80,43 @@
                     </h2>
                     <hr>
                     <p>Les champs avec une astérisque sont obligatoires :</p>
-                    <form role="form" method="post" action="inscrit-v2.php">
+                  
+                    <form role="form" method="POST" action="contact_me.php">
                         <div class="row">
                             <div class="form-group col-lg-4">
-                                <label>Nom de l'équipe<span class="asterisque"></span></label>
+                                <label>Nom de l'équipe<span class="asterisque"></span>
                                 <input type="text" class="form-control" name="equipe">
+                                </label>
                             </div>
                             <div class="form-group col-lg-4">
-                                <label>Addresse Mail</label>
+                                <label>Addresse Mail
                                 <input type="email" class="form-control" name="email">
+                                </label>
                             </div>
                             <div class="form-group col-lg-4">
-                                <label>Nom et Prénom du participant 1</label>
+                                <label>Nom et Prénom du participant 1
                                 <input type="text" class="form-control" name="nomprenom1">
+                                </label>
                             </div>
                             <div class="form-group col-lg-4">
-                                <label>Nom et Prénom du participant 2</label>
+                                <label>Nom et Prénom du participant 2
                                 <input type="text" class="form-control" name="nomprenom2">
+                                </label>
                             </div>
                             <div class="form-group col-lg-4">
-                                <label>Nom et Prénom du participant 3</label>
+                                <label>Nom et Prénom du participant 3
                                 <input type="text" class="form-control"  name="nomprenom3">
+                                </label>
                             </div>
                             <div class="form-group col-lg-4">
-                                <label>Nom et Prénom du participant 4</label>
+                                <label>Nom et Prénom du participant 4
                                 <input type="text" class="form-control" name="nomprenom4">
+                                </label>
+
                             </div>
                             <div class="form-group col-lg-4">
                                 <label>Numéro de téléphone</label>
                                 <input type="tel" class="form-control" name="telephone">
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="form-group col-lg-12">
-                                <label>Présentation succinte de votre équipe</label>
-                                <textarea class="form-control" rows="6" name="message"></textarea>
                             </div>
                             <div class="form-group col-lg-12">
                                 <input type="hidden" name="save" value="contact">
