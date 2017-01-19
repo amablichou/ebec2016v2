@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Contact - Business Casual - Start Bootstrap Theme</title>
+    <title>Inscription Validée</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,6 +30,52 @@
 
 </head>
 
+
+<?php
+// Emails form data to you and the person submitting the form and adds it to a database
+
+// Test for db
+$db = new mysqli("DB_HOST","DB_USER","DB_PASSWORD","DB_NAME");
+$sql = "SELECT id FROM form_submissions";
+$result = $db->query($sql);
+if (empty($result)) {
+    $sql = "CREATE TABLE `form_submissions` (
+        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `name` text COLLATE utf8_unicode_ci,
+        `phone` text COLLATE utf8_unicode_ci,
+         `email` int(11) DEFAULT NULL,
+         `message` text COLLATE utf8_unicode_ci,
+         `submitted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+         PRIMARY KEY (`id`)
+         ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+        $result = $db->query($sql);
+}
+
+
+// Set your email below
+$myemail = "amable.wernert@gmail.com"; // Replace with your email
+
+// Receive and sanitize input
+$team = mysqli_real_escape_string($db, $_POST['equipe']);
+$email = mysqli_real_escape_string($db, $_POST['email']);
+$nomprenom1 = mysqli_real_escape_string($db, $_POST['nomprenom1']);
+$nomprenom2 = mysqli_real_escape_string($db, $_POST['nomprenom2']);
+$nomprenom3 = mysqli_real_escape_string($db, $_POST['nomprenom3']);
+$nomprenom4 = mysqli_real_escape_string($db, $_POST['nomprenom4']);
+$phone = mysqli_real_escape_string($db, $_POST['telephone']);
+$message = mysqli_real_escape_string($db, $_POST['message']);
+
+// write to db
+$sql = "INSERT INTO form_submissions (name,phone,email,message) VALUES ('$name','$phone','$email','$message')";
+$result = $db->query($sql);
+
+// set up email
+$msg = "New contact form submission!\nName: " . $name . "\nEmail: " . $email . "\nPhone: " . $phone . "\nEmail: " . $email;
+$msg = wordwrap($msg,70);
+mail($myemail,"New Form Submission",$msg);
+//mail($email,"Thank you for your form submission",$msg);
+?>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
@@ -43,17 +89,17 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">EBEC Supelec</a>
+                <a class="navbar-brand" href="index.html">Business Casual</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div id="logo_ebec_navbar">
-                <a href="index.html"><img src="img/logo_ebec_saclay.png" width="150px"></a>
+                <a href="index.php"><img src="img/logo_ebec_saclay.png" width="150px"></a>
             </div>
             <div id="menu_navbar">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="prop_menu">
-                        <a href="suscribe.html">S'inscrire</a>
+                        <a href="suscribe.php">S'inscrire</a>
                     </li>
                     <li class="prop_menu">
                         <a href="lieu.html">Contact</a>
@@ -74,54 +120,9 @@
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center">Inscription
-                        <strong>EBEC SACLAY</strong>
-                    </h2>
-                    <hr>
-                    <p>Les champs avec une astérisque sont obligatoires :</p>
-                    <form role="form" method="post" action="inscrit-v2.php">
-                        <div class="row">
-                            <div class="form-group col-lg-4">
-                                <label>Nom de l'équipe<span class="asterisque"></span>
-                                <input type="text" class="form-control" name="equipe">
-                                </label>
-                            </div>
-                            <div class="form-group col-lg-4">
-                                <label>Addresse Mail
-                                <input type="email" class="form-control" name="email">
-                                </label>
-                            </div>
-                            <div class="form-group col-lg-4">
-                                <label>Nom et Prénom du participant 1
-                                <input type="text" class="form-control" name="nomprenom1">
-                                </label>
-                            </div>
-                            <div class="form-group col-lg-4">
-                                <label>Nom et Prénom du participant 2
-                                <input type="text" class="form-control" name="nomprenom2">
-                                </label>
-                            </div>
-                            <div class="form-group col-lg-4">
-                                <label>Nom et Prénom du participant 3
-                                <input type="text" class="form-control"  name="nomprenom3">
-                                </label>
-                            </div>
-                            <div class="form-group col-lg-4">
-                                <label>Nom et Prénom du participant 4
-                                <input type="text" class="form-control" name="nomprenom4">
-                                </label>
-                            </div>
-                            <div class="form-group col-lg-4">
-                                <label>Numéro de téléphone</label>
-                                <input type="tel" class="form-control" name="telephone">
-                          </div>
-                            <div class="form-group col-lg-12">
-                                <input type="hidden" name="save" value="contact">
-                                <button type="submit" class="btn btn-default">Envoyer</button>
-                            </div>
-                        </div>
-                    </form>
+                    <p> Ton inscription a bien été enregistrée! <br>
+                    Tu seras tenu informé des modalités de l'épreuve par mail et sur notre site internet.
+                    
                 </div>
             </div>
         </div>

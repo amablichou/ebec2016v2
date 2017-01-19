@@ -53,7 +53,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="prop_menu">
-                        <a href="suscribe.php">S'inscrire</a>
+                      <a href="suscribe.php">S'inscrire</a>
                     </li>
                     <li class="prop_menu">
                         <a href="lieu.html">Contact</a>
@@ -80,6 +80,7 @@
                     </h2>
                     <hr>
                     <p>Les champs avec une astérisque sont obligatoires :</p>
+                  
                     <form role="form" method="POST" action="contact_me.php">
                         <div class="row">
                             <div class="form-group col-lg-4">
@@ -111,12 +112,12 @@
                                 <label>Nom et Prénom du participant 4
                                 <input type="text" class="form-control" name="nomprenom4">
                                 </label>
+
                             </div>
                             <div class="form-group col-lg-4">
                                 <label>Numéro de téléphone</label>
                                 <input type="tel" class="form-control" name="telephone">
                             </div>
-                            <div class="clearfix"></div>
                             <div class="form-group col-lg-12">
                                 <input type="hidden" name="save" value="contact">
                                 <button type="submit" class="btn btn-default">Envoyer</button>
