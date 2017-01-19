@@ -53,7 +53,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="prop_menu">
-                        <a href="suscribe.html">S'inscrire</a>
+                        <a href="suscribe.php">S'inscrire</a>
                     </li>
                     <li class="prop_menu">
                         <a href="lieu.html">Contact</a>
@@ -80,7 +80,7 @@
                     </h2>
                     <hr>
                     <p>Les champs avec une astérisque sont obligatoires :</p>
-                    <form role="form" method="post" action="inscrit.php">
+                    <form role="form" method="POST" action="contact_me.php">
                         <div class="row">
                             <div class="form-group col-lg-4">
                                 <label>Nom de l'équipe<span class="asterisque"></span>
